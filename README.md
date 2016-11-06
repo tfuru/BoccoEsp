@@ -13,7 +13,7 @@
 | メッセージを既読にする | ☓ | ◯ |
 
 ## 依存
-事前に以下のライブラリを利用しているので Arduino IDE でインストールしておく必要があります。
+事前に以下のライブラリを利用しているので Arduino IDE でインストールしておく必要があります。  
 [WiFiManager](https://github.com/tzapu/WiFiManager)  
 [ArduinoJson](https://github.com/bblanchon/ArduinoJson)  
 [ESP8266TrueRandom](https://github.com/marvinroger/ESP8266TrueRandom)  
@@ -24,10 +24,10 @@
 
 ## インストール方法
 このリポジトリを zip でダウンロードして Arduino IDE から 指定してインポートをする。  
-1. zip ダウンロード 
-2. Arduino IDEを開く
-3. スケッチ → ライブラリをインクルード → zip形式のライブラリをインストールを選択する.
-4. 1でダウンロードした zip ファイルを指定する。
+1. zip ダウンロードする。  
+2. Arduino IDEを開く。  
+3. スケッチ → ライブラリをインクルード → zip形式のライブラリをインストールを選択する。  
+4. 1でダウンロードした zip ファイルを指定する。　　  
 
 ## サンプルコード実行
 Arduino IDE で サンプルを読み込んでビルドして実行する。  
