@@ -1,0 +1,11 @@
+/** Bocco API 設定 サンプル
+ *  
+ */
+ 
+//BOCCO アカウント情報
+#define BOCCO_EMAIL     "user@example.com"
+#define BOCCO_PASSWORD  "strongpassword"
+#define BOCCO_API_KEY   "dqdsj4vu5w7f0mb1zmi1f7jpfhitpuplxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+//初期設定の為のアクセスポイント名
+#define AP_NAME "YanariAP"
