@@ -57,15 +57,40 @@ String BoccoAPI::get(String url, String data, int retryCnt) {
       delay(BoccoAPI::RETRY_DELAY_SEC * 1000);
       return this->get(url,data,retryCnt);
     }
-
-    int bodypos =  response.indexOf("\r\n\r\n") + 4;
-    response = response.substring(bodypos);
-    //BOCCO サーバの返却にゴミデータが入っているので JSON 部分だけを取り出す
-    if(response.indexOf("[{") != -1){
-      response = response.substring( response.indexOf("[{") );
-      response = response.substring( 0, response.indexOf("}]\r\n") );
+    //Content-Length の有無を確認する
+    //Transfer-Encoding: chunked ヘッダーがある場合
+    bool isChunked = false;
+    if(response.indexOf("Transfer-Encoding: chunked") != -1){
+      isChunked = true;
     }
-    //Serial.println( response );
+    int bodypos =  response.indexOf("\r\n\r\n") + 4;
+    //BODY部分の取り出し
+    response = response.substring(bodypos);
+
+    if(isChunked == true){
+#ifdef BOCCO_DEBUG
+    Serial.println( "isChunked true" );
+#endif
+      //Transfer-Encoding: chunked の場合 サイズを取得
+      int sizepos =  response.indexOf("\r\n");
+      String size = response.substring(0,sizepos);
+#ifdef BOCCO_DEBUG
+      Serial.println( "size:"+size );
+#endif
+      // JSON を取り出す
+      response = response.substring(sizepos+2);
+      response = response.substring( 0, size.toInt() );
+    }
+    else{
+#ifdef BOCCO_DEBUG
+      Serial.println( "isChunked false" );
+#endif
+    }
+
+#ifdef BOCCO_DEBUG
+    Serial.println( "response" );
+    Serial.println( response );
+#endif
 
     return response;
   }

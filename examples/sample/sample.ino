@@ -4,9 +4,6 @@
 #include "config.h"
 #include "bocco_api.h"
 
-//デバッグを有効にする場合 定義する
-#define BOCCO_DEBUG
-
 //BOCCO API ライブラリ
 //BOCCO アカウント情報
 //#define BOCCO_EMAIL     "user@example.com"
@@ -69,7 +66,7 @@ void clickSw(){
 
 void loop() {
   if(valueSW == LOW){
-    boccoAPI.postMessageText("やなりからの手紙が届いたよ。ボタンを押されたよ！");
+    //boccoAPI.postMessageText("やなりからの手紙が届いたよ。ボタンを押されたよ！");
   }
   delay(100);
 }
