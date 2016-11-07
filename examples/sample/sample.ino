@@ -66,7 +66,7 @@ void clickSw(){
 
 void loop() {
   if(valueSW == LOW){
-    //boccoAPI.postMessageText("やなりからの手紙が届いたよ。ボタンを押されたよ！");
+    boccoAPI.postMessageText("やなりからの手紙が届いたよ。ボタンを押されたよ！");
   }
   delay(100);
 }
