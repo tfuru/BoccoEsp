@@ -79,7 +79,7 @@ String BoccoAPI::get(String url, String data, int retryCnt) {
 #endif
       // JSON を取り出す
       response = response.substring(sizepos+2);
-      response = response.substring( 0, size.toInt() );
+      response = response.substring( 0, (int)strtol(&(size[0]), 0, 16) );
     }
     else{
 #ifdef BOCCO_DEBUG
